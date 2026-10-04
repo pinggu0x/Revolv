@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#152b46">
+  <meta name="description" content="Revolv is your personal spaced repetition workspace. Study flashcards and multiple-choice questions, with progress saved in your browser.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Revolv · Your study workspace</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Workspace navigation">
+      <a class="brand" href="#library" aria-label="Revolv home">
+        <svg class="brand-symbol" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M31 11a15 15 0 1 0 3 17" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M25 7h9v9" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="m15 20 4 4 8-9" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>revolv<span class="brand-dot">.</span></span>
+      </a>
+      <p class="sidebar-caption">Your study workspace</p>
+      <nav class="main-nav">
+        <button data-action="library" class="nav-link" id="nav-library"><span class="nav-icon" data-icon="library"></span>My library</button>
+        <button data-action="stats" class="nav-link" id="nav-stats"><span class="nav-icon" data-icon="chart"></span>Statistics</button>
+        <button data-action="guide" class="nav-link"><span class="nav-icon" data-icon="help"></span>How to study</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="local-note"><span data-icon="shield"></span><div><strong>Just yours.</strong><p>Your decks and progress stay in this browser.</p></div></div>
+        <button data-action="backup" class="nav-link small"><span class="nav-icon" data-icon="download"></span>Export backup</button>
+        <button data-action="restore" class="nav-link small"><span class="nav-icon" data-icon="upload"></span>Restore backup</button>
+        <p class="creator">Created by Gabriel Zantua</p>
+      </div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <span id="workspace-label">My library</span>
+        <div class="topbar-right"><span class="save-indicator" id="save-status" role="status"><span class="status-dot"></span>Saved in this browser</span><button class="icon-button" data-action="guide" aria-label="Help and keyboard shortcuts"><span data-icon="help"></span></button></div>
+      </header>
+      <div id="notice" class="notice" role="alert" hidden></div>
+      <main id="main" tabindex="-1"></main>
+      <footer class="workspace-footer"><span>Revolv <span class="footer-divider">/</span> Learn. Recall. Repeat.</span><span>© 2025 Gabriel Zantua</span></footer>
+    </div>
+  </div>
+  <dialog id="dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
+  <input type="file" id="deck-file" accept=".md,.markdown,.txt,text/plain,text/markdown" multiple hidden>
+  <input type="file" id="backup-file" accept=".json,application/json" hidden>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <noscript><div class="noscript">Enable JavaScript to use Revolv. Your decks and study progress are saved locally in your browser.</div></noscript>
+</body>
+</html>
